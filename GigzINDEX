@@ -27,3 +27,88 @@
     <script src="app.js"></script>
 </body>
 </html>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f7fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+header, footer {
+    background-color: #6c63ff;
+    color: white;
+    padding: 1rem;
+}
+
+main {
+    padding: 2rem;
+}
+
+button {
+    padding: 10px 15px;
+    margin: 0.5rem;
+    border: none;
+    background-color: #ff6584;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #d14465;
+}
+
+.card {
+    background-color: white;
+    padding: 1rem;
+    margin: 1rem auto;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+const users = [
+    {name: "Alex Johnson", type: "Musician", rating: "⭐⭐⭐⭐"},
+    {name: "Maria Lopez", type: "Poet", rating: "⭐⭐⭐⭐⭐"},
+    {name: "Jason Brown", type: "DJ", rating: "⭐⭐⭐"},
+    {name: "Sophie White", type: "Organizer", rating: "⭐⭐⭐⭐⭐"},
+    {name: "Liam Green", type: "Band Leader", rating: "⭐⭐⭐⭐"}
+];
+
+const events = [
+    {title: "Open Mic Poetry Slam", location: "Campus Cafe", price: "Free", date: "2025-04-10"},
+    {title: "Indie Night Jam", location: "Student Hall", price: "$5", date: "2025-04-15"},
+    {title: "Acoustic Afternoon", location: "Main Quad", price: "Free", date: "2025-04-20"},
+    {title: "DJ Electronic Fest", location: "Dorm Courtyard", price: "$10", date: "2025-04-25"},
+    {title: "Battle of the Bands", location: "Sports Complex", price: "$7", date: "2025-04-30"}
+];
+function displayEvents() {
+    const content = document.getElementById('content');
+    content.innerHTML = '<h2>Upcoming Events</h2>';
+    events.forEach(event => {
+        content.innerHTML += `
+        <div class="card">
+            <h3>${event.title}</h3>
+            <p>📍 Location: ${event.location}</p>
+            <p>💰 Price: ${event.price}</p>
+            <p>📅 Date: ${event.date}</p>
+        </div>
+        `;
+    });
+}
+
+function displayUsers() {
+    const content = document.getElementById('content');
+    content.innerHTML = '<h2>Gigz Users</h2>';
+    users.forEach(user => {
+        content.innerHTML += `
+        <div class="card">
+            <h3>${user.name}</h3>
+            <p>🎭 Type: ${user.type}</p>
+            <p>⭐ Rating: ${user.rating}</p>
+        </div>
+        `;
+    });
+}
